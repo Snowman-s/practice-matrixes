@@ -1,44 +1,15 @@
 import java.util.Arrays;
-import java.util.List;
 
-public class Equiation {
+public class Equation {
   private double[][] data;
   private double[] rightSide;
   private int size;
 
-  public Equiation(double[][] data, double[] rightSide) {
+  public Equation(double[][] data, double[] rightSide) {
     // コピーしなきゃいけないが目をつぶります。
     this.data = data;
     this.rightSide = rightSide;
     size = data.length;
-  }
-
-  public static List<Equiation> create3x3Equiations() {
-    return List.of(
-        // p67 問22 (1)
-        new Equiation(new double[][] {
-            new double[] { 2, 3, 1 },
-            new double[] { 1, 2, 3 },
-            new double[] { 3, 1, 2 }
-        }, new double[] { 9, 6, 8 }),
-        // p74 演習8 (1)
-        new Equiation(new double[][] {
-            new double[] { 1, 3, -2 },
-            new double[] { 1, -8, 8 },
-            new double[] { 3, -2, 4 }
-        }, new double[] { 0, 0, 0 }),
-        // p74 演習8 (2)
-        new Equiation(new double[][] {
-            new double[] { 1, 3, -2 },
-            new double[] { 2, -3, 1 },
-            new double[] { 3, -2, 2 }
-        }, new double[] { 0, 0, 0 }),
-        // 同じ式がある場合
-        new Equiation(new double[][] {
-            new double[] { 1, 2, 3 },
-            new double[] { 1, 2, 3 },
-            new double[] { 1, 2, 4 }
-        }, new double[] { 1, 1, 0 }));
   }
 
   public void toDiagonal() {

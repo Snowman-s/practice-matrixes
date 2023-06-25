@@ -36,7 +36,7 @@ public class Matrix {
 
         // じゃあ行列式ないじゃん
         if (found == -1) {
-          throw new RuntimeException("行列は正則ではありません。");
+          return 0;
         }
 
         double[] swapTmp = data[found];
@@ -85,8 +85,8 @@ public class Matrix {
     double[][] dataCopy = MatrixMethods.copy(size, data);
     for (int repeating = 0; repeating < repeatTime; repeating++) {
       // qr分解する
+      double[][] q = new double[size][size];
       double[][] r = new double[size][size];
-      double[][] q = MatrixMethods.identity(size);
 
       // 行と列が逆になっているので注意
       double[][] u = new double[size][];
@@ -138,7 +138,7 @@ public class Matrix {
     }
 
     for (int repeating = 0; repeating < repeatTime; repeating++) {
-      Equiation equiation = new Equiation(MatrixMethods.copy(size, b), willBeEigenVector);
+      Equation equiation = new Equation(MatrixMethods.copy(size, b), willBeEigenVector);
       equiation.toDiagonal();
       willBeEigenVector = equiation.calcAns();
 
